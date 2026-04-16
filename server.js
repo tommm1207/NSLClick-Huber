@@ -9,8 +9,8 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Multer setup
-const upload = multer({ dest: 'uploads/' });
+// Multer setup - Use /tmp for Vercel (read-only filesystem)
+const upload = multer({ dest: process.env.VERCEL ? '/tmp' : 'uploads/' });
 
 // Handle folder creation for local dev
 const uploadsDir = path.join(__dirname, 'public/uploads');
@@ -25,7 +25,7 @@ if (!fs.existsSync(uploadsDir)) {
 // Asset Upload setup (Photo, CV, Video)
 const assetStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        // Fallback to /tmp which is writable on Vercel, although not served statically
+        // Fallback to /tmp which is writable on Vercel
         const dest = process.env.VERCEL ? '/tmp' : 'public/uploads/';
         cb(null, dest);
     },
@@ -373,7 +373,8 @@ app.get('/admin/sample-csv', isAdmin, (req, res) => {
     res.status(200).send(header + example);
 });
 
-if (process.env.NODE_ENV !== 'production') {
+// Only start the server if running locally
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
     app.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
     });
