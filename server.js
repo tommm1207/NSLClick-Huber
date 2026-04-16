@@ -229,7 +229,7 @@ app.post('/admin/login', (req, res) => {
         req.session.isAdmin = true;
         res.redirect('/admin');
     } else {
-        res.render('admin/login', { error: 'Sai mật khẩu.' });
+        res.render('admin/login', { error: 'Invalid password.' });
     }
 });
 
