@@ -107,4 +107,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ---
 
-*Built with ❤️ by [Your Name/Organization]*
+*Built with ❤️ by [Khoi Nguyen (Tom-VN)](https://github.com/tommm1207) / NSLClick (Germany)*

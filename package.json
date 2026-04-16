@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Khoi Nguyen (Tom-VN) / NSLClick (Germany)",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
