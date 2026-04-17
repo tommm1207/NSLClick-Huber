@@ -1,24 +1,24 @@
-# NSL Student Result Portal - Development Plan
+# NSL Student Result Portal - Development Roadmap
+Status: COMPLETED ✅
 
-## Overview
-Build a student portal for NSL where students enter their phone number to see their profile and scores.
+## Core Objectives
+Build a high-performance student portal and management dashboard for NSL.
 
-## Tech Stack
-- **Backend**: Node.js, Express
-- **Templating**: EJS
-- **Session**: express-session
-- **Integration**: Microsoft Graph API (SharePoint)
-- **Environment**: dotenv
+## Completed Features
+- **[x] Dashboard UI**: Implemented Bauhaus-inspired English UI for both Students and Admins.
+- **[x] Student Profiles**: Dynamic cards with score totals, proficiency levels, and superpower tags.
+- **[x] Admin System**: Full CRUD management with inline table editing.
+- **[x] Recycle Bin**: Implemented soft-delete logic with restoration capabilities.
+- **[x] Notifications**: Custom CSS/JS toast system for real-time user feedback.
+- **[x] Microsoft Graph API**: Production-ready SharePoint list integration.
+- **[x] Vercel Ready**: Optimized for serverless with `/tmp` file handling and `vercel.json`.
 
-## Implementation Steps
-1. **Setup**: Initialize project and install dependencies.
-2. **Configuration**: Set up environment variables for mock and production modes.
-3. **Core Logic**: Develop `server.js` with session management and student lookup logic.
-4. **Graph Integration**: Implement OAuth2 flow and SharePoint list fetching.
-5. **Frontend**: Create clean, responsive views using EJS.
-6. **Validation**: Test mock data flow and session persistence.
+## Technical Specs
+- **Frontend**: EJS, Vanilla CSS (Premium Design Tokens)
+- **Backend**: Node.js/Express
+- **Database**: Microsoft SharePoint (via Graph API) / In-memory Mock
+- **Asset Handling**: Multer (Local storage / Vercel-compatible)
 
-## Design Specs
-- **Colors**: Navy (#1a3c6e), Gray (#888, #f5f5f5), Green (#27ae60).
-- **Typography**: Inter (Google Fonts).
-- **Layout**: Centered cards, responsive grids.
+## Maintenance
+- Ensure Graph API secrets are rotated regularly.
+- Monitor `/uploads` directory for cleanup in local development.

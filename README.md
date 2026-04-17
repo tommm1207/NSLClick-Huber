@@ -1,49 +1,51 @@
-# 🌟 NSL Student Result Portal
+# 🌟 NSL Click - Student Result & Management Portal
 
 [![Language](https://img.shields.io/badge/Language-Node.js-green.svg)](https://nodejs.org)
 [![Framework](https://img.shields.io/badge/Framework-Express-lightgrey.svg)](https://expressjs.com)
 [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deployment-Vercel-black.svg)](https://vercel.com)
 
-A premium, responsive web application for students to securely access their academic results, profiles, and documents. Built with focus on speed, security, and seamless integration with Microsoft SharePoint.
+A premium, enterprise-grade management system designed for **NSL (Study & Work in Germany)**. This portal provides two core experiences: a sleek, Bauhaus-inspired student result viewer and a powerful administrative dashboard for full student lifecycle management.
 
 ---
 
 ## 🚀 Key Features
 
-- **🔐 Secure Authentication**: Simple yet secure login using phone numbers with session-based persistence.
-- **📊 Real-time Data**: Integrated with **Microsoft Graph API** to fetch student records directly from SharePoint lists.
-- **📱 Premium Responsive UI**: Clean, mobile-first design using EJS templates and Inter typography.
-- **📂 Document Access**: Direct links to student documents like CVs, Photos, and Videos.
-- **🛠 Flexible Backend**: Supports both `Mock Data` mode for development and `Production` mode for live API integration.
-- **☁️ Vercel Ready**: Pre-configured for seamless deployment to Vercel's serverless platform.
+### 🎓 Student Experience
+- **🔐 Secure Access**: Instant login via phone number with persistent session management.
+- **📊 Interactive Profiles**: Dynamic student profiles featuring German proficiency levels, test scores, and interview performance.
+- **📄 Document Integration**: Embedded Google Drive CV previews, high-resolution student photos, and video introductions.
+- **🎨 Bauhaus Design**: A modern, responsive UI featuring professional typography (Montserrat/Inter) and a clean, high-contrast aesthetic.
+
+### 🛠 Administrative Dashboard
+- **📈 Live Management**: A central hub to monitor, search, and manage student entries in real-time.
+- **✏️ Inline Data Editing**: Rapid, spreadsheet-like editing for all student fields directly within the dashboard.
+- **📂 Industrial File Handling**: Integrated upload system for Photos, CVs (PDF), and Video assets.
+- **♻️ Recycle Bin System**: Robust soft-delete workflow with a dedicated "Trash" to restore or permanently remove records.
+- **⚡ Toast Notifications**: Real-time feedback for all CRUD operations using a custom built-in notification system.
+- **📥 CSV Bulk Import**: Seamlessly import large student datasets from legacy Excel/CSV files.
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Core**: Node.js, Express.js (v5+)
+- **Backend**: Node.js, Express.js (v5+)
+- **Storage/Integration**: Microsoft Graph API (SharePoint) & Mock Data Mode
 - **Templating**: EJS (Embedded JavaScript)
-- **Authentication**: Express Session & Cookie Session
-- **Integration**: Microsoft Graph API / Axios
-- **Styling**: Vanilla CSS (Premium Design System)
-- **Deployment**: Vercel
+- **Styling**: Vanilla CSS (Custom Design System, Responsive Bauhaus UI)
+- **Security**: express-session, cookie-session, Role-based Access Control
+- **Deployment**: Vercel-optimized (Serverless ready)
 
 ---
 
 ## 💻 Getting Started
 
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/nsl-portal.git
-   cd nsl-portal
+   git clone https://github.com/tommm1207/NSLClick-Huber.git
+   cd NSLClick-Huber
    ```
 
 2. **Install dependencies**
@@ -51,47 +53,30 @@ A premium, responsive web application for students to securely access their acad
    npm install
    ```
 
-3. **Configure Environment Variables**
-   Create a `.env` file in the root directory and copy the values from `.env.example`:
-   ```bash
-   cp .env.example .env
+3. **Configure Environment**
+   Create a `.env` file based on `.env.example`:
+   ```env
+   USE_MOCK_DATA=true # Set to false for SharePoint
+   ADMIN_PASSWORD=your_secure_password
+   SESSION_SECRET=your_random_secret
+   # SharePoint/Graph API credentials
+   TENANT_ID=...
+   CLIENT_ID=...
+   CLIENT_SECRET=...
    ```
-   *Required variables:*
-   - `USE_MOCK_DATA`: Set to `true` for development, `false` for SharePoint integration.
-   - `SESSION_SECRET`: Random string for session encryption.
-   - `ADMIN_PASSWORD`: Access code for administrative features.
-   - `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`: Azure AD credentials for Microsoft Graph.
 
-4. **Run the application**
+4. **Launch**
    ```bash
-   npm start
+   npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) to view the portal.
-
----
-
-## 📁 Project Structure
-
-```text
-nsl-portal/
-├── public/          # Static assets (CSS, Images)
-├── views/           # EJS Template files (Login, Profile, 404)
-├── server.js        # Main Express application logic
-├── vercel.json      # Vercel deployment configuration
-├── .env.example     # Template for environment variables
-└── package.json     # Project dependencies and scripts
-```
 
 ---
 
 ## ☁️ Deployment
 
-### Deploy to Vercel
-
-1. **Push your code to GitHub.**
-2. **Connect to Vercel**: Import the repository on [Vercel Dashboard](https://vercel.com).
-3. **Set Environment Variables**: Add all variables from your `.env` to the Vercel project settings.
-4. **Deploy**: Vercel will automatically detect the configuration and deploy your app.
+This project is optimized for **Vercel**. 
+- **Multer Compatibility**: Automatically detects Vercel environments and uses `/tmp` for temporary storage.
+- **Zero Config**: Uses `vercel.json` for immediate deployment without setup.
 
 ---
 
@@ -101,10 +86,4 @@ This project is licensed under the **ISC License**.
 
 ---
 
-## 🤝 Contribution
-
-Contributions are welcome! Feel free to open an issue or submit a pull request.
-
----
-
-*Built with ❤️ by [Khoi Nguyen (Tom-VN)](https://github.com/tommm1207) / NSLClick (Germany)*
+*Built with ❤️ for NSL (Germany) by [Khoi Nguyen (Tom-VN)](https://github.com/tommm1207)*
